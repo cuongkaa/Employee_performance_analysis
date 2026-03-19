@@ -1,0 +1,72 @@
+# ============================================================
+# HR Analytics Project — Tham số cấu hình
+# ============================================================
+# Mọi hyperparameters, seed, split ratio đều được ghi rõ ở đây
+# để đảm bảo tính tái lập (reproducibility) cho thí nghiệm.
+# ============================================================
+
+data:
+  raw_path: "data/raw/HR_Analytics.csv"
+  processed_path: "data/processed/hr_cleaned.csv"
+  target: "Attrition"
+  test_size: 0.2               # 80% train, 20% test
+
+# ---- Khai phá tri thức (Mining) ----
+mining:
+  # Apriori — Luật kết hợp
+  min_support: 0.05             # Ngưỡng support tối thiểu
+  min_threshold: 1.2            # Ngưỡng lift tối thiểu cho luật
+
+  # Clustering
+  n_clusters: 3                 # Số cụm K-Means mặc định
+  dbscan_eps: 1.5               # DBSCAN: bán kính lân cận
+  dbscan_min_samples: 10        # DBSCAN: số mẫu tối thiểu
+  hac_linkage: "ward"           # HAC: phương pháp liên kết
+
+  cluster_features:
+    - Age
+    - MonthlyIncome
+    - TotalWorkingYears
+    - YearsAtCompany
+    - DistanceFromHome
+    - JobSatisfaction
+    - EnvironmentSatisfaction
+    - WorkLifeBalance
+
+# ---- Mô hình phân lớp (Classification) ----
+model:
+  random_state: 42              # Seed cho reproducibility
+
+  # Random Forest
+  rf_n_estimators: 100          # Số cây
+  rf_class_weight: "balanced"   # Xử lý mất cân bằng lớp
+
+  # XGBoost
+  xgb_n_estimators: 100         # Số vòng boosting
+  xgb_learning_rate: 0.1        # Tốc độ học
+  xgb_max_depth: 5              # Độ sâu tối đa
+  xgb_eval_metric: "logloss"    # Metric đánh giá
+
+# ---- Bán giám sát (Semi-supervised) ----
+semi_supervised:
+  label_ratios:                 # Tỷ lệ nhãn giữ lại cho thí nghiệm
+    - 0.05                      # 5% nhãn
+    - 0.10                      # 10% nhãn
+    - 0.20                      # 20% nhãn
+    - 0.30                      # 30% nhãn
+  self_training_threshold: 0.75 # Ngưỡng tin cậy Self-Training
+  self_training_max_iter: 10    # Số vòng lặp tối đa
+
+# ---- Hồi quy (Regression) ----
+regression:
+  target_col: "JobSatisfaction"  # Cột mục tiêu hồi quy
+  leakage_threshold: 0.85       # Ngưỡng tương quan cảnh báo leakage
+  gbr_n_estimators: 100
+  gbr_learning_rate: 0.1
+  gbr_max_depth: 5
+
+# ---- Đường dẫn output ----
+output:
+  figures_dir: "outputs/figures"
+  tables_dir: "outputs/tables"
+  models_dir: "outputs/models"

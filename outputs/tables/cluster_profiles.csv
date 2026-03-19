@@ -1,0 +1,4 @@
+Cluster,Age,MonthlyIncome,TotalWorkingYears,YearsAtCompany,DistanceFromHome,JobSatisfaction,EnvironmentSatisfaction,WorkLifeBalance,Count,Attrition_Rate,HR_Strategy
+0,34.71,4814.25,8.42,5.49,9.39,3.52,2.7,2.76,749,15.2,Cần phân tích thêm
+1,34.68,4852.77,8.64,5.4,9.2,1.48,2.75,2.77,477,22.2,"Hài lòng thấp → cải thiện môi trường, lắng nghe feedback"
+2,47.65,14593.44,24.68,14.52,8.76,2.72,2.73,2.74,254,7.1,"Nhóm senior → mentor program, giữ chân bằng vai trò lãnh đạo; Trung thành → thưởng loyalty, cơ hội thăng tiến; ✅ Ổn định - duy trì chính sách hiện tại"

@@ -1,0 +1,11 @@
+Feature,Mean |SHAP|
+WorkloadScore,0.52531314
+StockOptionLevel,0.46963227
+MonthlyIncome,0.42361847
+AvgYearsPerCompany,0.3436751
+DistanceFromHome,0.3350106
+OverTime_Yes,0.2787018
+SatisfactionIndex,0.270436
+YearsWithCurrManager,0.2564252
+Age,0.25512466
+DailyRate,0.23007856

@@ -1,0 +1,4 @@
+Model,F1 (macro),PR-AUC,Precision (class 1),Recall (class 1)
+XGBoost,0.6859,0.5763,0.5806,0.375
+Random Forest,0.5691,0.5649,0.8571,0.125
+Self-Training (20% labels),0.4559,0.6161,0.0,0.0
